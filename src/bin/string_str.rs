@@ -95,5 +95,24 @@ fn main(){
     println!("{}",s1);
     println!("{}",s2);
 
+    // 转义
+    // 如果字符串包含双引号，可以在开头和结尾加 #
+    let quotes = r#"And then I said: "There is no escape!""#;
+    println!("{}", quotes);
+
+    // 如果还是有歧义，可以继续增加，没有限制
+    let longer_delimiter = r###"A string with "# ####in it. And even "##!"###;
+    println!("{}", longer_delimiter);
+
+    // 按照字符遍历字符串 这种方式不需要注意字节边界
+    for c in String::from("中国人").chars() {
+        println!("{}", c);
+    }
+
+    // 遍历字节
+    for b in "中国人".bytes() {
+        println!("{}", b);
+    }
+
 
 }
