@@ -1,6 +1,6 @@
 fn main(){
     /*
-    String 和 str 相关
+    String 和 str
      */
 
     // 此时 s 是一个 字符串字面量 并不是 String 类型
