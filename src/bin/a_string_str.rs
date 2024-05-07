@@ -45,11 +45,11 @@ fn main(){
     // replace 替换字符串 (要替换的字符串,新的字符串) 会替换所有匹配到的串
     // 返回一个新的字符串 不改变原有的字符串
     let s = String::from("karima love me , karima love me");
-    let s1 = s.replace("me", "cyy");
+    let s1 = s.replace("me", "y");
     println!("{}",s1);
 
     // replacen (要替换的字符串,新的字符串,替换个数)
-    let s2 = s.replacen("me", "cyy", 1);
+    let s2 = s.replacen("me", "y", 1);
     println!("{}",s2);
 
     // replace_range (替换范围,新的字符串) 包头不包尾
