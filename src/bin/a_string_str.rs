@@ -24,7 +24,7 @@ fn main(){
     // println!("{}",s1);
 
     // push 在尾部追加字符或字符串 
-    // 会改变原来的 string 需要可变性
+    // 会改变原来的 string 需要可变
     let mut s = String::from("hello ");
     s.push_str("world");
     s.push('!');
@@ -32,7 +32,7 @@ fn main(){
     println!("{}",&s);
 
     // insert 插入单个字符或字符串
-    // 会改变原来的 string 需要可变性
+    // 会改变原来的 string 需要可变
     // let mut s = String::from("中国人");
     // /*
     // 此处与前面一样 中 字占3个字节 1 落在 中 的字节中
@@ -53,7 +53,7 @@ fn main(){
     println!("{}",s2);
 
     // replace_range (替换范围,新的字符串) 包头不包尾
-    // 会改变原来字符串 需要可变性
+    // 会改变原来字符串 需要可变
     let mut string_replace_range = String::from("I like rust!");
     string_replace_range.replace_range(7..9, "R");
     dbg!(string_replace_range);

@@ -18,7 +18,7 @@ fn main(){
 }
 
 // 在函数返回值场景下很常用
-// 一下函数返回输入的 字符串和其长度
+// 此函数返回输入的 字符串和其长度
 fn calculate_length(s: String) -> (String, usize) {
     let length = s.len(); // len() 返回字符串的长度
 
