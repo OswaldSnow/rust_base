@@ -73,7 +73,9 @@ fn build_user(email:String,username:String) -> User{
 
 
 // 两个元组结构体 表示 颜色、点位置
+#[allow(dead_code)]
  struct Color(i32,i32,i32);
+ #[allow(dead_code)]
  struct Point(i32,i32,i32);
 
 // 定义单元结构体 定义一个方法
