@@ -76,6 +76,7 @@ fn main(){
 }
 
 #[derive(Debug)]
+#[allow(dead_code)]
 enum Coin {
     Penny,
     Nickel,
@@ -84,6 +85,7 @@ enum Coin {
 }
 
 #[derive(Debug)]
+#[allow(dead_code)]
 enum Direction {
     East,
     West,
