@@ -4,6 +4,12 @@ fn main(){
     全模式匹配列表
      */
 
+    /*
+    很简单 没有必要拿过来的都在
+    https://course.rs/basic/match-pattern/all-patterns.html 上了
+    可以去温习
+     */
+
      // 数组可以如下匹配
      let arr: [u16; 2] = [114, 514];
      let [x, y] = arr;
