@@ -5,7 +5,7 @@ fn main(){
 
     // rust 中的 trait（特征）类似于 java 中的接口
     // trait 也是用来定义行为的
-    let p1 = Post::new("xxx事件".to_string(), "cyy".to_string(), "xxxxxxx".to_string());
+    let p1 = Post::new("xxx事件".parse().unwrap(), "cyy".to_string(), "xxxxxxx".to_string());
     println!("{}",p1.summarize());
     
     println!("p1 title is {}",p1.title);
