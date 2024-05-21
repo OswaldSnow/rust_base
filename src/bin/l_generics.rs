@@ -1,3 +1,5 @@
+use std::fmt::Display;
+
 fn main(){
     /*
     泛型
@@ -41,7 +43,7 @@ struct Point<T>{
 }
 
 // 为泛型结构体实现方法
-impl <T> Point<T>{
+impl <T: Display> Point<T>{
     fn print_self_name(){
         println!("my name is Point<T>")
     }
