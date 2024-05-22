@@ -104,7 +104,7 @@ pub fn some_function<T,U>(&A: &T,&B: &U) -> i32
 但是需要是同一个类型
 例如 A、B 两个类型都实现了 Summary
 
-if some_con return A
+if some_conditions return A
 else return B
 
 这种方式是不行的，因为 A 和 B 不是同一种类型
