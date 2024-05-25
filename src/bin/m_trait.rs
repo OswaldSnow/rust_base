@@ -1,3 +1,5 @@
+use std::fmt::{Debug, Display};
+
 fn main(){
     /*
     trait
@@ -89,13 +91,17 @@ pub fn notify(item: &(impl Display + Summary))
 pub fn notify<T: Display + Summary>(item: &T)
 
 当约束条件过多时可以使用 where 约束
-pub fn some_function<T: Display + Summary, U: Clone + Debug + Display + Summary>(&A: &T,&B: &U) -> i32{}
+pub fn some_function<T: Display + Summary, U: Clone + Debug + Display + Summary>(a: &T,b: &U) -> i32{}
 
 使用 where 改写
-pub fn some_function<T,U>(&A: &T,&B: &U) -> i32
+pub fn some_function<T,U>(a: &T, b: &U) -> i32
     where T: Display + Summary,
-            U: Clone + Debug + Display
-{}
+          U: Clone + Debug + Display
+{
+    println!("{}", a);
+    println!("{}", b);
+    6
+}
  */
 
 /*
