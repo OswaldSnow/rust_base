@@ -1,5 +1,4 @@
-use std::fs::File;
-
+#[allow(unused)]
 fn main(){
     /*
     返回值与错误
@@ -17,6 +16,5 @@ fn main(){
 
     use std::net::IpAddr;
     let home: IpAddr = "127.0.0.1".parse().unwrap();
-
 
 }
