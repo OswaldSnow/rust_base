@@ -1,7 +1,7 @@
 // 同时存在 main.rs 和 lib.rs 的项目
 // 从 库根中使用 mod
-use hello_world::utils;
-use hello_world::Person;
+use rust_daily::utils;
+use rust_daily::Person;
 
 // 使用第三方库
 // 引入时使用 self
