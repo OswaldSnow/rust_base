@@ -6,12 +6,12 @@ use rust_base::Person;
 // 使用第三方库
 // 引入时使用 self
 // 表示 引入当前模块本身 和 模块的 Rng
-use rand::{self,Rng};
+use rand::{self, Rng};
 // 引入方式
 // 以下方式可能会引入一些与当前作用域名称冲突的东西
 // use rand::*;
 
-fn main(){
+fn main() {
     println!("Hello, world!");
 
     // Use the function from the library crate
@@ -25,5 +25,4 @@ fn main(){
     // 使用第三方库获取指定范围内随机值
     let secret_number = rand::thread_rng().gen_range(1..101);
     println!("secret_number is {secret_number}");
-
 }

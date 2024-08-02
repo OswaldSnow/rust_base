@@ -1,36 +1,33 @@
 use std::fmt::{Display, Formatter};
 
-fn main(){
+fn main() {
     /*
     格式化
      */
-    println!("Hello");                 // => "Hello"
-    println!("Hello, {}!", "world");   // => "Hello, world!"
-    println!("The number is {}", 1);   // => "The number is 1"
-    println!("{:?}", (3, 4));          // => "(3, 4)"
-    println!("{value}", value=4);      // => "4"
-    println!("{} {}", 1, 2);           // => "1 2"
-    println!("{:04}", 42);             // => "0042" with leading zeros
+    println!("Hello"); // => "Hello"
+    println!("Hello, {}!", "world"); // => "Hello, world!"
+    println!("The number is {}", 1); // => "The number is 1"
+    println!("{:?}", (3, 4)); // => "(3, 4)"
+    println!("{value}", value = 4); // => "4"
+    println!("{} {}", 1, 2); // => "1 2"
+    println!("{:04}", 42); // => "0042" with leading zeros
 
     // 输出到标准错误输出
     eprintln!("something wrong!!!");
-
 
     // Display 和 Debug 特征
     // {} 需要实现 Display 特征
     // {:?} {:#?} 需要实现 Debug特征 或 派生Debug
     let u1 = User::default();
-    println!("Display: {}",u1);
-    println!("Debug: {:#?}",u1);
-
+    println!("Display: {}", u1);
+    println!("Debug: {:#?}", u1);
 
     // 位置参数
     println!("{}{}", 1, 2); // =>"12"
     println!("{1}{0}", 1, 2); // =>"21"
-    // => Alice, this is Bob. Bob, this is Alice
+                              // => Alice, this is Bob. Bob, this is Alice
     println!("{0}, this is {1}. {1}, this is {0}", "Alice", "Bob");
     println!("{1}{}{0}{}", 1, 2); // => 2112
-
 
     // 为参数指定名称
     println!("{argument}", argument = "test"); // => "test"
@@ -41,7 +38,6 @@ fn main(){
     // Positional arguments must come before named arguments
     // println!("{abc} {1}", abc = "def", 2);
 
-
     // 格式化输出
     let v = std::f64::consts::PI;
     // 保留小数点后两位
@@ -49,7 +45,6 @@ fn main(){
     println!("PI = {:.2}", v);
     // Debug => 3.14
     println!("PI = {:.2?}", v);
-
 
     // 宽度 指定输出目标的宽度 长度不够时进行填充和对齐 默认使用空格
     // 以下全部输出 "Hello x    !"
@@ -66,7 +61,6 @@ fn main(){
     // 使用参数5为参数x指定宽度，同时在结尾输出参数5 => Hello x    !5
     println!("Hello {:1$}!{}", "x", 5);
 
-
     // 补齐
     // 以下全部都会补齐5个字符的长度
     // 左对齐 => Hello x    !
@@ -76,11 +70,9 @@ fn main(){
     // 居中对齐 => Hello   x  !
     println!("Hello {:^5}!", "x");
 
-
     // 对齐并使用指定符号填充 => Hello x&&&&!
     // 指定符号填充的前提条件是必须有对齐字符
     println!("Hello {:&<5}!", "x");
-
 
     // 浮点数精度控制
     let v = std::f64::consts::PI;
@@ -98,7 +90,6 @@ fn main(){
     println!("{:.3}", s);
     // {:.*}接收两个参数，第一个是精度，第二个是被格式化的值 => Hello abc!
     println!("Hello {:.*}!", 3, "abcdefg");
-
 
     // 进制
     // 二进制 => 0b11011!
@@ -118,49 +109,40 @@ fn main(){
     // 使用0填充二进制，宽度为10 => 0b00011011!
     println!("{:#010b}!", 27);
 
-
     // 指数
     println!("{:2e}", 1000000000); // => 1e9
     println!("{:2E}", 1000000000); // => 1E9
 
-
     // 指针地址
-    let v= vec![1, 2, 3];
+    let v = vec![1, 2, 3];
     println!("v ptr is {:p}", v.as_ptr()); // => 0x600002324050
-
 
     // 转义字符
     // "{{" 转义为 '{'   "}}" 转义为 '}'   "\"" 转义为 '"'
     // => Hello "{World}"
     let world = "world";
     println!("转义字符 Hello \"{world}\" ");
-
 }
-
 
 #[derive(Debug)]
-struct User{
+struct User {
     name: String,
-    age: u8
+    age: u8,
 }
 
-impl Default for User{
+impl Default for User {
     fn default() -> Self {
-        User{
+        User {
             name: "王磊".to_string(),
-            age: 36
+            age: 36,
         }
     }
 }
 
-impl Display for User{
+impl Display for User {
     fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
-        let formatted = write!(f,
-               "name is {} age is {}",
-               self.name,
-               self.age);
+        let formatted = write!(f, "name is {} age is {}", self.name, self.age);
 
         formatted
     }
 }
-

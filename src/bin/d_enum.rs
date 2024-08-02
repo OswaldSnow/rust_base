@@ -1,14 +1,14 @@
-fn main(){
-   /*
-   枚举类型
-    */
+fn main() {
+    /*
+    枚举类型
+     */
 
     // 简单定义及使用
     let club = PokerSuit::Clubs;
     dbg!(club);
 
-    let _u = (PokerSuit::Hearts,3);
-    
+    let _u = (PokerSuit::Hearts, 3);
+
     // Option 枚举
     // Option 被设计来替代其他语言中的 null ，所以 rust 中不存在 null 关键字
     // 实际上下面这一行被简化了 完整的写法应该是
@@ -22,20 +22,17 @@ fn main(){
     match_something(nothing);
 
     if let Some(i) = a {
-        println!("解构 Option::Some(t),t is {}",i);
+        println!("解构 Option::Some(t),t is {}", i);
     }
-
-
-
 }
 
-fn match_something(x:Option<i32>){
+fn match_something(x: Option<i32>) {
     match x {
         None => {
             println!("this is None!!!");
-        },
+        }
         Some(val) => {
-            println!("this bring something! It's {}",val);
+            println!("this bring something! It's {}", val);
         }
     }
 }

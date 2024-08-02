@@ -10,7 +10,7 @@ fn main() {
                 options: vec![
                     String::from("Yes"),
                     String::from("Maybe"),
-                    String::from("No")
+                    String::from("No"),
                 ],
             }),
             Box::new(Button {
@@ -28,9 +28,6 @@ fn main() {
     // 一个特征的所有方法都必须满足
     // 1、返回值不是 Self
     // 2、没有泛型参数
-
-
-
 }
 
 pub trait Draw {
@@ -93,7 +90,6 @@ impl Screen {
 //     }
 // }
 
-
 // fn draw1(x: Box<dyn Draw>) {
 //     // 由于实现了 Deref 特征，Box 智能指针会自动解引用为它所包裹的值，然后调用该值对应的类型上定义的 `draw` 方法
 //     x.draw();
@@ -103,4 +99,3 @@ impl Screen {
 // fn draw2(x: &impl Draw){
 //     x.draw();
 // }
-

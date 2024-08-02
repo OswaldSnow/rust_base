@@ -1,4 +1,4 @@
-fn main(){
+fn main() {
     /*
     String 和 str
      */
@@ -7,7 +7,7 @@ fn main(){
     let s = "hello world";
     let hello = &s[..5];
     let world = &s[6..];
-    println!("{},{}",hello,world);
+    println!("{},{}", hello, world);
 
     /*
     在 rust 中 字符类型 char 固定 4 个字节
@@ -18,18 +18,18 @@ fn main(){
     切片是按照字节切的
     中 字占用三个字节
     下面这种切法 获取到的 第 1 2 个字节
-    会出现错误  而且这种错误编译器无法检查出来 很重要 
+    会出现错误  而且这种错误编译器无法检查出来 很重要
      */
     // let s1 = &s[0..2];
     // println!("{}",s1);
 
-    // push 在尾部追加字符或字符串 
+    // push 在尾部追加字符或字符串
     // 会改变原来的 string 需要可变
     let mut s = String::from("hello ");
     s.push_str("world");
     s.push('!');
-    
-    println!("{}",&s);
+
+    println!("{}", &s);
 
     // insert 插入单个字符或字符串
     // 会改变原来的 string 需要可变
@@ -46,11 +46,11 @@ fn main(){
     // 返回一个新的字符串 不改变原有的字符串
     let s = String::from("karima love me , karima love me");
     let s1 = s.replace("me", "y");
-    println!("{}",s1);
+    println!("{}", s1);
 
     // replacen (要替换的字符串,新的字符串,替换个数)
     let s2 = s.replacen("me", "y", 1);
-    println!("{}",s2);
+    println!("{}", s2);
 
     // replace_range (替换范围,新的字符串) 包头不包尾
     // 会改变原来字符串 需要可变
@@ -61,8 +61,8 @@ fn main(){
     // 与删除有关的方法 pop()，remove()，truncate()，clear()
     // pop() 删除并返回字符串中最后一个字符 返回值为 Option 类型
     let mut string_pop = String::from("rust pop 中文!");
-    if let Some(p1) = string_pop.pop(){
-        println!("{}",p1);
+    if let Some(p1) = string_pop.pop() {
+        println!("{}", p1);
     }
 
     // remove() 删除并返回字符串中指定位置的字符 参数必须落在合适的字节位置
@@ -85,15 +85,15 @@ fn main(){
     dbg!(a1_a2);
     // 使用 + 连接后 a1 变量所有权被转移到 add 方法中 方法调用结束后 a1 不再有效
     // println!("{}",a1);
-    
+
     // 宏 format! 连接字符串
     let s1 = "hello";
     let s2 = String::from("rust");
     let s = format!("{} {}!", s1, s2);
     // format! 不会拿走变量所有权
     println!("{}", s);
-    println!("{}",s1);
-    println!("{}",s2);
+    println!("{}", s1);
+    println!("{}", s2);
 
     // 转义
     // 如果字符串包含双引号，可以在开头和结尾加 #
@@ -113,6 +113,4 @@ fn main(){
     for b in "中国人".bytes() {
         println!("{}", b);
     }
-
-
 }

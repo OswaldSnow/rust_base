@@ -1,26 +1,26 @@
 use std::fs::File;
-use std::io::Error;
 use std::io;
+use std::io::Error;
 use std::io::Read;
 
 #[allow(unused)]
-fn main() -> Result<(), Box<dyn std::error::Error>>  {
+fn main() -> Result<(), Box<dyn std::error::Error>> {
     /*
     Result<T,E> 枚举
      */
 
-    let file : Result<File,Error>= File::open("hello.txt");
+    let file: Result<File, Error> = File::open("hello.txt");
     match file {
         Ok(file) => {
-            println!("file name is {:?}",file);
-        },
+            println!("file name is {:?}", file);
+        }
         Err(error) => {
-            println!("error is {:?}",error);
+            println!("error is {:?}", error);
         }
     }
 
     // 自定义返回 Result 方法
-    let res = divide(19,9);
+    let res = divide(19, 9);
 
     /*
     失败就 panic: unwrap 和 expect
@@ -38,11 +38,9 @@ fn main() -> Result<(), Box<dyn std::error::Error>>  {
     // ?
     let file_res_str = read_username_from_file();
 
-
     // main 函数中的传播
     let f = File::open("hello.txt")?;
     Ok(())
-
 }
 
 // 随便自定义一个 Result
@@ -92,5 +90,4 @@ fn first(arr: &[i32]) -> Option<&i32> {
     // 这种语法正常时 不会将正常的值返回
     // 需要 一个变量来承载正确的值
     // arr.get(0)?
-
 }

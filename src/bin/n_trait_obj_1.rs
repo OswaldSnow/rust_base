@@ -1,6 +1,6 @@
 use std::fmt::Display;
 
-fn main(){
+fn main() {
     /*
     深入特征
      */
@@ -15,13 +15,12 @@ fn main(){
     Duck::walk_self(&user1);
     Bird::walk_self(&user1);
     // 不带有 &self 的关联方法
-    <User as Duck >::walk();
+    <User as Duck>::walk();
     <User as Bird>::walk();
 
     /*
     new type
      */
-
 }
 
 #[derive(Debug)]
@@ -29,25 +28,25 @@ pub struct User;
 /*
 关联类型
  */
-pub trait Compare{
+pub trait Compare {
     type Item;
 
     fn compare(&self, item: &Self::Item) -> Self::Item;
 }
 
-pub trait Bird{
+pub trait Bird {
     fn walk_self(&self);
     fn walk();
 }
 
-pub trait Duck{
+pub trait Duck {
     fn walk_self(&self);
     fn walk();
 }
 
-impl Bird for User{
+impl Bird for User {
     fn walk_self(&self) {
-       println!("{:?}",self)
+        println!("{:?}", self)
     }
 
     fn walk() {
@@ -55,9 +54,9 @@ impl Bird for User{
     }
 }
 
-impl Duck for User{
+impl Duck for User {
     fn walk_self(&self) {
-        println!("{:?}",self)
+        println!("{:?}", self)
     }
 
     fn walk() {

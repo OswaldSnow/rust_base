@@ -1,20 +1,16 @@
 use std::fmt::Display;
 
-fn main(){
+fn main() {
     /*
     泛型
      */
     Point::<i32>::print_self_name();
 
-    let p1 = Point{
-        x:1,
-        y:2
-    };
-    println!("x is {},y is {}",p1.x(),p1.y());
+    let p1 = Point { x: 1, y: 2 };
+    println!("x is {},y is {}", p1.x(), p1.y());
 
     let p2 = Point::new(89, 100);
-    println!("x is {},y is {}",p2.x(),p2.y());
-
+    println!("x is {},y is {}", p2.x(), p2.y());
 
     // const 泛型
     let arr: [i32; 3] = [1, 2, 3];
@@ -29,22 +25,20 @@ fn main(){
 
     /*
     rust 泛型是零成本抽象
-    写代码时候我们抽象的指定 T:someTrait 
+    写代码时候我们抽象的指定 T:someTrait
     但是编译时 rust 会为每一种类型实现对应的方法
      */
-
-
-}   
+}
 
 // 最基本用法
-struct Point<T>{
+struct Point<T> {
     x: T,
-    y: T
+    y: T,
 }
 
 // 为泛型结构体实现方法
-impl <T: Display> Point<T>{
-    fn print_self_name(){
+impl<T: Display> Point<T> {
+    fn print_self_name() {
         println!("my name is Point<T>")
     }
 }
@@ -80,7 +74,6 @@ fn display_array<T: std::fmt::Debug, const N: usize>(arr: [T; N]) {
 // {
 //     //
 // }
-
 
 // pub enum Assert<const CHECK: bool> {
 //     //

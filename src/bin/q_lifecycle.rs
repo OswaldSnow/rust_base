@@ -8,7 +8,7 @@ fn main() {
     // 结构体的生命周期
     let data_val = "this is data_val";
     let data1 = Data::new(data_val);
-    println!("{:#?}",data1);
+    println!("{:#?}", data1);
 
     // 生命周期消除
     // 早期版本的 rust 需要为所有引用标注生命周期
@@ -26,30 +26,26 @@ fn main() {
     // 生命周期约束语法
     let s1 = "return str lifecycle is 'b";
     let s2 = data1.announce_and_return_part(&s1);
-    println!("s2 is: {}",s2);
+    println!("s2 is: {}", s2);
 
     // 静态生命周期 'static
-    println!("this story is : {}",Data::return_static());
-
-
+    println!("this story is : {}", Data::return_static());
 }
 
 // 该引用的生命周期至少与结构体实例本身的生命周期一样长
 // 换句话说 被引用的数据的生命周期要 >= 结构体实例本身的生命周期
 #[derive(Debug)]
-pub struct Data<'a>{
-    data: &'a str
+pub struct Data<'a> {
+    data: &'a str,
 }
 
-impl <'a> Data<'a>{
-    pub fn new(data: &'a str) -> Self{
-        Data{
-            data
-        }
+impl<'a> Data<'a> {
+    pub fn new(data: &'a str) -> Self {
+        Data { data }
     }
 
-    pub fn return_some<'b>(&'a self, item: &'b str) -> &'b str{
-        return item
+    pub fn return_some<'b>(&'a self, item: &'b str) -> &'b str {
+        return item;
     }
 
     // 生命周期约束语法
@@ -58,16 +54,16 @@ impl <'a> Data<'a>{
     // 所以 self.data 的 周期a 一定要 >= 周期b
     // 符合生命周期约束 'a: 'b
     fn announce_and_return_part<'b>(&'a self, announcement: &'b str) -> &'b str
-        where 'a: 'b
+    where
+        'a: 'b,
     {
         println!("Attention please: {}", announcement);
         self.data
     }
 
-    fn return_static() -> &'static str{
+    fn return_static() -> &'static str {
         "Karima love OswaldSnow"
     }
-
 }
 
 // 返回值的生命周期与参数生命周期中的较小值一致
@@ -85,13 +81,9 @@ fn longest<'a>(x: &'a str, y: &'a str) -> &'a str {
 
 // 一个综合方法
 use std::fmt::Display;
-fn longest_with_an_announcement<'a, T>(
-    x: &'a str,
-    y: &'a str,
-    ann: T,
-) -> &'a str
-    where
-        T: Display,
+fn longest_with_an_announcement<'a, T>(x: &'a str, y: &'a str, ann: T) -> &'a str
+where
+    T: Display,
 {
     println!("Announcement! {}", ann);
     if x.len() > y.len() {
@@ -100,5 +92,3 @@ fn longest_with_an_announcement<'a, T>(
         y
     }
 }
-
-
