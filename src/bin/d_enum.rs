@@ -46,6 +46,7 @@ enum PokerSuit {
 }
 
 // 可以直接将数据信息关联到枚举成员上
+#[allow(unused)]
 #[derive(Debug)]
 enum PokerCard {
     _Clubs(u8),

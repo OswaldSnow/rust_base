@@ -71,6 +71,7 @@ impl<'a> Data<'a> {
 // 在不添加 'a 生命周期标识的情况下
 // 编译器无法得知函数在调用时会返回 x引用 还是 y引用
 // 就无法得知是否会发生悬垂引用
+#[allow(unused)]
 fn longest<'a>(x: &'a str, y: &'a str) -> &'a str {
     if x.len() > y.len() {
         x
@@ -81,6 +82,7 @@ fn longest<'a>(x: &'a str, y: &'a str) -> &'a str {
 
 // 一个综合方法
 use std::fmt::Display;
+#[allow(unused)]
 fn longest_with_an_announcement<'a, T>(x: &'a str, y: &'a str, ann: T) -> &'a str
 where
     T: Display,

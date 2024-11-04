@@ -68,6 +68,7 @@ impl Duck for User {
 特征的特征约束
 含义为 实现此特征的类型必须先实现了 Display 特征
  */
+#[allow(unused)]
 trait OutlinePrint: Display {
     fn outline_print(&self) {
         let output = self.to_string();
